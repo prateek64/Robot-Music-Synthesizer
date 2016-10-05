@@ -1,0 +1,15 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (RobotMusicMaker.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MainComponent.cpp
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\sine.h(27): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\sine.h(37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\sine.h(37): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(59): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(292): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(389): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(393): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(427): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(429): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(434): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\pmurgai\desktop\quarter-1\256a\prateek_homework_1\source\maincomponent.cpp(436): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  BasicAudio.vcxproj -> C:\Users\pmurgai\Desktop\Quarter-1\256A\Prateek_Homework_1\Builds\VisualStudio2015\Debug\BasicAudio.exe
+  BasicAudio.vcxproj -> Debug\\BasicAudio.pdb (Full PDB)
