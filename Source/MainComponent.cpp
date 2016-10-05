@@ -56,15 +56,13 @@ public:
     MainContentComponent() : gain (0.0), samplingRate(0.0), no_of_sine_waves(0)
     {
 		
-		initialize_GUI_elements();
-
+	initialize_GUI_elements();
         setSize(600, 400); // Sets the initial size of the application 
-		nChans = 1;
-		setAudioChannels(0, nChans); // no inputs, one output
+	nChans = 1;
+	setAudioChannels(0, nChans); // no inputs, one output
         // configuring the frequency slider and adding to the main window
            
-        
-       
+      
     }
     
     ~MainContentComponent()
@@ -78,7 +76,7 @@ public:
     void initialize_GUI_elements() {
         
         // Text Editor that takes in the number of sine waves from the user
-		addAndMakeVisible(input_no_of_sine_waves);
+	addAndMakeVisible(input_no_of_sine_waves);
         input_no_of_sine_waves.setText(to_string(max)); // Default value of the number of sine waves is set to the max value
         input_no_of_sine_waves.addListener (this); // Adds the listener function for the specific component ( in this case text editor)
         
@@ -86,13 +84,13 @@ public:
         how_many_sine_waves.setText ("Enter Number of Sine_Waves( Max 5!)", dontSendNotification);
         how_many_sine_waves.attachToComponent(&input_no_of_sine_waves, true);
         
-		addAndMakeVisible(confirm_button);
-		confirm_button.setButtonText("Confirm");
-		confirm_button.addListener(this); 
+	addAndMakeVisible(confirm_button);
+	confirm_button.setButtonText("Confirm");
+	confirm_button.addListener(this); 
 
-		no_of_sine_waves= input_no_of_sine_waves.getText().getIntValue(); // Reads number of sine waves from text editor 
+	no_of_sine_waves= input_no_of_sine_waves.getText().getIntValue(); // Reads number of sine waves from text editor 
 
-		initialize_components_and_variables();
+	initialize_components_and_variables();
 
     }
     
@@ -139,6 +137,7 @@ public:
 	*/
 
     void initialize_components_and_variables() {
+    
 		e.wait(7000);
 		sine_A = new Sine[no_of_sine_waves];
 		frequency_slider_A = new Slider[no_of_sine_waves];
@@ -155,7 +154,7 @@ public:
 			on_off_A[i] = 0;
 		} 
 		
-		for(int i =0;i<no_of_sine_waves;i++){
+		for(int i =0;i<no_of_sine_waves;i++) {
 		    
 		    carrier_freq[i] = 440.0;
 		}
@@ -194,8 +193,8 @@ public:
     
         }
 
-		addAndMakeVisible(robot_music_mode);
-		robot_music_mode.addListener(this);
+	addAndMakeVisible(robot_music_mode);
+	robot_music_mode.addListener(this);
 
     }
        
@@ -238,11 +237,11 @@ public:
         
         no_of_waves.setBounds(sliderLeft, 20, getWidth() - sliderLeft - 20, 20);
         confirm_button.setBounds(300,8, getWidth() - sliderLeft - 300, 20);
-		robot_music_mode.setBounds(400, 25, 180,30);
+	robot_music_mode.setBounds(400, 25, 180,30);
         
-		smoothing_button.setBounds(400,25,180,30);
-		de_smooth.setBounds(400, 25, 180, 30);
-		frequency_and_on_off_bounds(sliderLeft);
+	smoothing_button.setBounds(400,25,180,30);
+	de_smooth.setBounds(400, 25, 180, 30);
+	frequency_and_on_off_bounds(sliderLeft);
         
         gain_slider.setBounds (sliderLeft, 370 , getWidth() - sliderLeft - 20, 20);
         input_no_of_sine_waves.setBounds(3*sliderLeft,10,30,20);
@@ -275,8 +274,9 @@ public:
             if (slider == &frequency_slider_A[i]) {
                     
                //   sine_A[i].setFrequency(frequency_slider_A[i].getValue());
-				carrier_freq[i] = frequency_slider_A[i].getValue();
-				smoothing[i].setSmooth(0.99994);
+		carrier_freq[i] = frequency_slider_A[i].getValue();
+		smoothing[i].setSmooth(0.99994);
+		
             } 
             
         }    
@@ -325,12 +325,12 @@ public:
 		   
 		   // Checks if the number of sine waves entered is more than the max value permitted.
 		   if (no_of_sine_waves > max) {
-			   no_of_sine_waves = 5;
-			   input_no_of_sine_waves.setText("5");
+			no_of_sine_waves = 5;
+			input_no_of_sine_waves.setText("5");
 		   }
 
 		   // Signals the thread that is waiting to not wait anymore
-		    e.signal();
+		    	e.signal();
 			add_components(); 
 
 			confirm_button.setVisible(false); // Makes the confirm button invisible
@@ -359,7 +359,7 @@ public:
 		
 		if(button == &smoothing_button) {
 		    
-		    smooth_mode = true;
+		        smooth_mode = true;
 			smoothing_button.setVisible(false); // Makes the smoothing button invisible 
 			addAndMakeVisible(de_smooth);
 			de_smooth.addListener(this); 
@@ -379,7 +379,7 @@ public:
     }
 
 
-    void prepareToPlay (int /*samplesPerBlockExpected*/, double sampleRate) override{
+    void prepareToPlay (int /*samplesPerBlockExpected*/, double sampleRate) override {
         samplingRate = sampleRate;
         
         for( int i = 0 ; i <no_of_sine_waves ; i++) { 
@@ -411,8 +411,7 @@ public:
         float temp_buffer = 0.0;
   
         // computing one block
-        for (int sample = 0; sample < bufferToFill.numSamples; ++sample)
-        {
+        for (int sample = 0; sample < bufferToFill.numSamples; ++sample) {
             
             for(int i = 0 ; i < no_of_sine_waves ; i++) {
                 
@@ -446,16 +445,16 @@ private:
     // UI Elements
 
     Slider*frequency_slider_A; // frequency sliders  (control the frequency of sine waves)
-	Slider gain_slider,no_of_waves; // gain sliders ( control the gain of the sine waves)
+    Slider gain_slider,no_of_waves; // gain sliders ( control the gain of the sine waves)
     
 
     ToggleButton*on_off_button_A; // on/off toggle buttons
     TextButton robot_music_mode; // button to enter the robot music mode
-	TextButton confirm_button; // button that is pressed to confirm the number of sine waves
+    TextButton confirm_button; // button that is pressed to confirm the number of sine waves
    // Button confirm_button;
    
     TextButton smoothing_button; 
-	TextButton de_smooth;
+    TextButton de_smooth;
 
     Label*frequency_label_A,*on_off_label_A; // frequency and on/off labels
     Label how_many_sine_waves,gain_label,confirm_label;
@@ -463,23 +462,23 @@ private:
     TextEditor input_no_of_sine_waves; // textbox that takes the number of sine_waves as input
 
     Sine*sine_A; // the sine wave oscillator
-	Smooth*smoothing; // Object of Smooth type used to smooth the the process of sudden frequency changes
-	double*carrier_freq;
-	WaitableEvent e; // Used to make a thread wait while the other is performing tasks
+    Smooth*smoothing; // Object of Smooth type used to smooth the the process of sudden frequency changes
+    double*carrier_freq;
+    WaitableEvent e; // Used to make a thread wait while the other is performing tasks
     
 	
-	Random random;
+    Random random;
     // Global Variables
     float gain; // gain for the sine waves
-	int*on_off_A; // toggle states for switching on and off the sine waves
+    int*on_off_A; // toggle states for switching on and off the sine waves
  
-	int samplingRate, nChans;
-	int	no_of_sine_waves; // Variable to store the number of sine waves the user wants to synthesize
+    int samplingRate, nChans;
+    int no_of_sine_waves; // Variable to store the number of sine waves the user wants to synthesize
 	
 	
     const int max = 5; // Max number of sine waves for additive synthesis
-	bool music_mode = false; // bool that control the on/off the robot music mode
-	bool smooth_mode = false; // bool that control the smoothing of frequencies
+    bool music_mode = false; // bool that control the on/off the robot music mode
+    bool smooth_mode = false; // bool that control the smoothing of frequencies
 
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
