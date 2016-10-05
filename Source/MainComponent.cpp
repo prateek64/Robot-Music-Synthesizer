@@ -49,8 +49,6 @@ class MainContentComponent :
 //	private MouseListener  // Listens for events related to mouse movements
 
 	
-	
-
    
     
 {
@@ -64,9 +62,7 @@ public:
 		nChans = 1;
 		setAudioChannels(0, nChans); // no inputs, one output
         // configuring the frequency slider and adding to the main window
-        
-        
-        
+           
         
        
     }
@@ -379,13 +375,11 @@ public:
 			smoothing_button.setVisible(true);
 		}
 		
-        
          
     }
 
 
-    void prepareToPlay (int /*samplesPerBlockExpected*/, double sampleRate) override
-    {
+    void prepareToPlay (int /*samplesPerBlockExpected*/, double sampleRate) override{
         samplingRate = sampleRate;
         
         for( int i = 0 ; i <no_of_sine_waves ; i++) { 
